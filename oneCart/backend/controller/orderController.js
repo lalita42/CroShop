@@ -1,16 +1,16 @@
 import Order from "../model/orderModel.js";
 import User from "../model/userModel.js"
-import Razorpay from 'razorpay'
+// import Razorpay from 'razorpay'
 
 import dotenv from 'dotenv'
 
 dotenv.config()
 
 const currency = 'inr'
-const razorpayInstance = new Razorpay({
-  key_id: process.env.Razorpay_KEY_ID,
-  key_secret: process.env.Razorpay_KEY_SECRET,
-});
+// const razorpayInstance = new Razorpay({
+//   key_id: process.env.Razorpay_KEY_ID,
+//   key_secret: process.env.Razorpay_KEY_SECRET,
+// });
 export const placeOrder = async (req,res) =>{
     try{
         const{items , amount, address} = req.body;
@@ -70,38 +70,38 @@ export const updateStatus = async (req,res)=>{
 }
 
 
-export const placeOrderRazorpay = async (req,res) => {
-    try{
-        const {items, amount ,address} = req.body;
-        const userId = req.userId;
-        const orderData = {
-            items,
-            amount,
-            userId,
-            address,
-            paymentMethod:'Razorpay',
-            payment:false,
-            date:Date.now()
-        }
+// export const placeOrderRazorpay = async (req,res) => {
+//     try{
+//         const {items, amount ,address} = req.body;
+//         const userId = req.userId;
+//         const orderData = {
+//             items,
+//             amount,
+//             userId,
+//             address,
+//             paymentMethod:'Razorpay',
+//             payment:false,
+//             date:Date.now()
+//         }
 
-        const newOrder = new Order(orderData)
-        await newOrder.save()
+        // const newOrder = new Order(orderData)
+        // await newOrder.save()
 
-        const options = {
-            amount:amount * 100,
-            currency: currency.toUpperCase(),
-            receipt : newOrder._id.toString()
-        }
-        razorpayInstance.orders.create(options,(error,order) =>{
-            if(error) {
-                console.log(error)
-                return res.status(500).json(error)
-            }
-            res.status(200).json(order)
-        })
-    } catch(error)
-    {
-        console.log(error)
-        res.status(500).json({message:error.message})
-    }
-}
+        // const options = {
+        //     amount:amount * 100,
+        //     currency: currency.toUpperCase(),
+        //     receipt : newOrder._id.toString()
+        // }
+        // razorpayInstance.orders.create(options,(error,order) =>{
+        //     if(error) {
+        //         console.log(error)
+        //         return res.status(500).json(error)
+        //     }
+//             res.status(200).json(order)
+//         })
+//     } catch(error)
+//     {
+//         console.log(error)
+//         res.status(500).json({message:error.message})
+//     }
+// }
