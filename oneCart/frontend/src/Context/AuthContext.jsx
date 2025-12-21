@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 
 const AuthDataContext= createContext()
 const AuthContext = ({children}) => {
-    const serverUrl = "http://localhost:8000"
+    const serverUrl = "https://croshop-backend-zwm2.onrender.com"
     const value = {
         serverUrl
     }
