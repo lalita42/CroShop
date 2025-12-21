@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ai from "../assets/AI.png";
 import { useNavigate } from "react-router-dom";
 import { ShopDataContext } from "../Context/ShopContext";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 export const Ai = () => {
   let { showSearch, setShowSearch } = useContext(ShopDataContext);
@@ -84,7 +84,7 @@ export const Ai = () => {
     else {
       speak(`searching for ${transcript}`);
       navigate(`/search?query=${transcript}`);
-      toast.error("try again");
+      // toast.error("try again");
     }
   };
 
