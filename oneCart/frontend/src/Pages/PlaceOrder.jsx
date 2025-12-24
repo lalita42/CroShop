@@ -30,23 +30,23 @@ export const PlaceOrder = () => {
     setFormData(data => ({...data,[name]:value}))
   }
 
-  const initPay = (order) =>{
-    const options = {
-      key:import.meta.env.ROZORPAY_KEY_ID,
-      amount:order.amount,
-      currency: order.currency,
-      name:'Order Payment',
-      description:'Order Payment',
-      order_id: order.id,
-      receipt:order.receipt,
-      handler: async (response) =>{
-        console.log(response)
+  // const initPay = (order) =>{
+  //   const options = {
+  //     key:import.meta.env.ROZORPAY_KEY_ID,
+  //     amount:order.amount,
+  //     currency: order.currency,
+  //     name:'Order Payment',
+  //     description:'Order Payment',
+  //     order_id: order.id,
+  //     receipt:order.receipt,
+  //     handler: async (response) =>{
+  //       console.log(response)
 
-      const rzp = new window.Rozarpay(options)
-      rzp.open()
-      }
-    }
-  }
+  //     const rzp = new window.Rozarpay(options)
+  //     rzp.open()
+  //     }
+  //   }
+  // }
     const onSubmitHandler = async (e) =>{
       e.preventDefault()
       try{
