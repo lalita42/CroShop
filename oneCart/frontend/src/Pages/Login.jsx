@@ -56,10 +56,6 @@ export const Login = () => {
       },
       { withCredentials: true }
     );
-    console.log(result.data)
-    getCurrentUser()
-    navigate("/")
-
     console.log("✅ Google login successful:", result.data);
     alert("Google Login Successful");
     await getCurrentUser(); 
