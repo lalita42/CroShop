@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Background } from '../Component/Background'
 import { Hero } from '../Component/Hero'
-import { Nav } from '../../../admin/src/Component/Nav'
+import { Nav } from '../Component/Nav';
 import { Product } from './Product'
 import { OurPolicy } from '../Component/OurPolicy'
 import { NewLetterBox } from '../Component/NewLetterBox'
